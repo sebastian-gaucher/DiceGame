@@ -2,39 +2,43 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class DiceGame {
-
+	private static String[][] Language;
+	private static int Lang = 0;
 	public static void main(String[] args) {
 		int die1;
 		int die2;
 		String[] playerChoices;
+		Language = initLang();
+		String LangChoice = getInput("enter language:\n[0]english\n[1]Hawaiian pidgen");
+		Lang = Integer.parseInt(LangChoice);
 		die1 = roll();
 		die2 = roll();
 		String choice;
-		choice = getInput("Do you want to play?\nYes\nNo");
+		choice = getInput(Language[Lang][0]);
 		choice = choice.toLowerCase();
 		int count = 0;
-		String playerCount = getInput("How many players are there?");
+		String playerCount = getInput(Language[Lang][1]);
 		count = Integer.parseInt(playerCount);
 		playerChoices = new String[count];
-		while(choice.equals("yes")) {
+		while(choice.equals(Language[Lang][2])) {
 			
 			for(int c= 0; c < count; c++) {
-			playerChoices[c] = getInput("Player "+(c+1)+": [0] Even\n[1] Odd");
+			playerChoices[c] = getInput(Language[Lang][3]+(c+1)+Language[Lang][4]);
 			
 			}
-			System.out.println("Die 1: "+die1+"\nDie 2: "+die2);
+			System.out.println(Language[Lang][5]+die1+Language[Lang][6]+die2);
 			//Start a new loop here.
 			for(int c=0; c<count;c++) {
 				if(didIWin(die1,die2,playerChoices[c]))
 				{
-					System.out.println("Player "+(c+1)+" wins!");
+					System.out.println(Language[Lang][7]+(c+1)+Language[Lang][8]);
 				}else
 				{
-					System.out.println("Player "+(c+1)+" loses!");
+					System.out.println(Language[Lang][9]+(c+1)+Language[Lang][10]);
 				}
 			}
 			
-			choice = getInput("Do you want to play?\nYes\nNo");
+			choice = getInput(Language[Lang][11]);
 			choice = choice.toLowerCase();
 			die1 = roll();
 			die2 = roll();
@@ -42,6 +46,13 @@ public class DiceGame {
 	}
 	private static boolean didIWin(int die1, int die2, String choice)
 	{
+		if (choice.equals("0") && (die1 + die2) %2== 0 ) 
+		{
+			return true;
+		}else if (choice.equals("1") && (die1 + die2) %2 == 1) 
+		{
+			return true;
+		}
 		
 		return false;
 	}
@@ -68,7 +79,22 @@ public class DiceGame {
 		}
 		return choice;
 	}
-	
+	private static String [][] initLang(){
+		String [][] temp = new String[][]{
+			{"Do you want to play?\nYes\nNo","How many players are there?",
+				"yes","Player ",": \n[0] Even\n[1] Odd",
+				"Die 1: ","\nDie 2: ","Player "," wins!","Player ",
+				" loses!","Do you want to play?\nYes\nNo"	},
+			
+			{"you like try?\nYessah\nNo","how many buggahs?",
+				"yessah","buggah ",": \n[0] Even\n[1] Odd",
+				"Die 1: ","\nDie 2: ","buggah "," winnah!","Player ",
+				" no need win!","you like try again?\nYessah\nNo"
+				
+			}
+		};
+		return temp;
+	}
 	private static boolean isInputInteger(String input) {
 		boolean isAnInteger = true;
 		for(int c = 0; c < input.length();c++) {
