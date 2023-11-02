@@ -9,7 +9,7 @@ public class DiceGame {
 		int die2;
 		String[] playerChoices;
 		Language = initLang();
-		String LangChoice = getInput("enter language:\n[0]English\n[1]Hawaiian pidgen\n[2]Chinese");
+		String LangChoice = getInput("enter language:\n[0]English\n[1]Hawaiian pidgen\n[2]spanish");
 		Lang = Integer.parseInt(LangChoice);
 		die1 = roll();
 		die2 = roll();
@@ -89,7 +89,12 @@ public class DiceGame {
 			{"you like try?\nYessah\nNo","how many buggahs?",
 			"yessah","buggah ",": \n[0] Even\n[1] Odd",
 			"Die 1: ","\nDie 2: ","buggah "," winnah!","buggah ",
-			" no need win!","you like try again?\nYessah\nNo"}
+			" no need win!","you like try again?\nYessah\nNo"},
+			
+			{"¿Quieres jugar?\nSí\nNo","Cuantos jugadores hay?",
+				"Sí","Jugador ",": \n[0] Incluso\n[1] Extraño",
+				"morir 1: ","\nmorir 2: ","Jugador "," ¡Gana!","Jugador ",
+				" pierde!","¿Quieres jugar?\nSí\nNo"}
 		};
 		return temp;
 	}
