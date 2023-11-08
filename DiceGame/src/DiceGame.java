@@ -89,8 +89,12 @@ public class DiceGame {
 			{"you like try?\nYessah\nNo","how many buggahs?",
 				"yessah","buggah ",": \n[0] Even\n[1] Odd",
 				"Die 1: ","\nDie 2: ","buggah "," winnah!","Player ",
-				" no need win!","you like try again?\nYessah\nNo"
-				
+				" no need win!","you like try again?\nYessah\nNo"},
+			{
+			"놀고 싶어?\n예\n아니요", "플레이어가 몇 명 있어요?", 
+			"예", "플레이어", ": \n[0] 심지어\n[1] 이상한", 
+			"주사위 1: ", "\n주사위 2: ", "플레이어", "승리!", "플레이어",
+			"진!", "놀고 싶어?\\n예\\n아니요"
 			}
 		};
 		return temp;
